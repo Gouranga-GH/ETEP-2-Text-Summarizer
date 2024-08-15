@@ -1,30 +1,29 @@
-artifacts_root: artifacts
+artifacts_root: artifacts  # Root directory where all artifacts related to the project will be stored.
 
+data_ingestion:  # Configuration for data ingestion processes.
+  root_dir: artifacts/data_ingestion  # Directory where ingested data will be stored.
+  source_URL: https://github.com/Gouranga-GH/Additional-Files/raw/main/summarizer-data.zip  # URL from which the data will be downloaded.
+  local_data_file: artifacts/data_ingestion/data.zip  # Local path where the downloaded data will be saved.
+  unzip_dir: artifacts/data_ingestion  # Directory where the zip file will be unzipped.
 
-data_ingestion:
-  root_dir: artifacts/data_ingestion
-  source_URL: https://github.com/Gouranga-GH/Additional-Files/raw/main/summarizer-data.zip
-  local_data_file: artifacts/data_ingestion/data.zip
-  unzip_dir: artifacts/data_ingestion
+data_validation:  # Configuration for data validation processes.
+  root_dir: artifacts/data_validation  # Directory where validation results and status will be stored.
+  STATUS_FILE: artifacts/data_validation/status.txt  # Path to the status file that tracks validation results.
+  ALL_REQUIRED_FILES: ["train", "test", "validation"]  # List of required files for validation.
 
-data_validation:
-  root_dir: artifacts/data_validation
-  STATUS_FILE: artifacts/data_validation/status.txt
-  ALL_REQUIRED_FILES: ["train", "test", "validation"]
+data_transformation:  # Configuration for data transformation processes.
+  root_dir: artifacts/data_transformation  # Directory where transformed data will be stored.
+  data_path: artifacts/data_ingestion/samsum_dataset  # Path to the directory containing the raw data to be transformed.
+  tokenizer_name: google/pegasus-cnn_dailymail  # Name of the tokenizer to be used for data transformation.
 
-data_transformation:
-  root_dir: artifacts/data_transformation
-  data_path: artifacts/data_ingestion/samsum_dataset
-  tokenizer_name: google/pegasus-cnn_dailymail
+model_trainer:  # Configuration for model training processes.
+  root_dir: artifacts/model_trainer  # Directory where model training artifacts will be saved.
+  data_path: artifacts/data_transformation/samsum_dataset  # Path to the transformed data to be used for training.
+  model_ckpt: google/pegasus-cnn_dailymail  # Pre-trained model checkpoint to be used for training or fine-tuning.
 
-model_trainer:
-  root_dir: artifacts/model_trainer
-  data_path: artifacts/data_transformation/samsum_dataset
-  model_ckpt: google/pegasus-cnn_dailymail
-
-model_evaluation:
-  root_dir: artifacts/model_evaluation
-  data_path: artifacts/data_transformation/samsum_dataset
-  model_path: artifacts/model_trainer/pegasus-samsum-model
-  tokenizer_path: artifacts/model_trainer/tokenizer
-  metric_file_name: artifacts/model_evaluation/metrics.csv
+model_evaluation:  # Configuration for model evaluation processes.
+  root_dir: artifacts/model_evaluation  # Directory where evaluation results will be stored.
+  data_path: artifacts/data_transformation/samsum_dataset  # Path to the data used for evaluation.
+  model_path: artifacts/model_trainer/pegasus-samsum-model  # Path to the trained model to be evaluated.
+  tokenizer_path: artifacts/model_trainer/tokenizer  # Path to the tokenizer used for the model.
+  metric_file_name: artifacts/model_evaluation/metrics.csv  # File path where evaluation metrics will be saved.

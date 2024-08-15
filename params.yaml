@@ -1,10 +1,10 @@
 TrainingArguments:
-  num_train_epochs: 1
-  warmup_steps: 500
-  per_device_train_batch_size: 1
-  weight_decay: 0.01
-  logging_steps: 10
-  evaluation_strategy: steps
-  eval_steps: 500
-  save_steps: 1e6
-  gradient_accumulation_steps: 16
+  num_train_epochs: 1  # Number of training epochs, i.e., how many times the model will be trained on the entire dataset.
+  warmup_steps: 500  # Number of steps for learning rate warmup. This helps to avoid large gradients at the start of training.
+  per_device_train_batch_size: 1  # Batch size for training, specifying how many samples are processed at once per device (e.g., GPU).
+  weight_decay: 0.01  # Weight decay (regularization) to prevent overfitting by penalizing large weights.
+  logging_steps: 10  # Frequency of logging training metrics, i.e., how often (in steps) training progress is logged.
+  evaluation_strategy: steps  # Strategy for evaluating the model. 'steps' means evaluation is done every few steps.
+  eval_steps: 500  # Number of steps between evaluations if the evaluation strategy is set to 'steps'.
+  save_steps: 1e6  # Number of steps between saving checkpoints of the model. Here, it is set to 1 million steps.
+  gradient_accumulation_steps: 16  # Number of steps to accumulate gradients before performing a weight update. This helps to effectively increase the batch size without requiring more memory.
