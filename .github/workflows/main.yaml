@@ -104,7 +104,7 @@ jobs:
          
       - name: Stop and remove container if running
         run: |
-         docker ps -q --filter "name=textsum" | grep -q . && docker stop textsum && dockmer rm -fv textsum  # Stop and remove the container if running (currently commented out)
+         docker ps -q --filter "name=textsum" | grep -q . && docker stop textsum && docker rm -fv textsum  # Stop and remove the container if running (first iteration commented out)
        
       - name: Run Docker Image to serve users
         run: |
