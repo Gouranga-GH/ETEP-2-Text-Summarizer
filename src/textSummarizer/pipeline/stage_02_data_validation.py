@@ -1,5 +1,5 @@
 from textSummarizer.config.configuration import ConfigurationManager  # Import ConfigurationManager to manage configurations.
-from textSummarizer.components.data_validation import DataValiadtion  # Import DataValiadtion class to handle data validation.
+from textSummarizer.components.data_validation import DataValidation  # Import DataValiadtion class to handle data validation.
 from textSummarizer.logging import logger  # Import logger for logging messages.
 
 class DataValidationTrainingPipeline:
@@ -16,7 +16,7 @@ class DataValidationTrainingPipeline:
         data_validation_config = config.get_data_validation_config()
         
         # Initialize the DataValiadtion class with the retrieved configuration.
-        data_validation = DataValiadtion(config=data_validation_config)
+        data_validation = DataValidation(config=data_validation_config)
         
         # Validate the existence of all required files.
         data_validation.validate_all_files_exist()
