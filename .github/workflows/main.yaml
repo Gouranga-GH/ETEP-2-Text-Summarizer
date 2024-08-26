@@ -91,8 +91,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}  # AWS Access Key ID from GitHub secrets
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  # AWS Secret Access Key from GitHub secrets
-          # aws-region: ${{ secrets.AWS_REGION }}  # AWS Region from GitHub secrets
-          aws-region: eu-north-1
+          aws-region: ${{ secrets.AWS_REGION }}  # AWS Region from GitHub secrets
           audience: sts.amazonaws.com
 
       - name: Login to Amazon ECR
