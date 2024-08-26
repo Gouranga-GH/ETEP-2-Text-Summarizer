@@ -102,9 +102,9 @@ jobs:
         run: |
          docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest  # Pull the latest Docker image from ECR
          
-      - name: Stop and remove container if running
-        run: |
-         docker ps -q --filter "name=textsum" | grep -q . && docker stop textsum && docker rm -fv textsum  # Stop and remove the container if running (first iteration commented out)
+      # - name: Stop and remove container if running
+      #   run: |
+      #    docker ps -q --filter "name=textsum" | grep -q . && docker stop textsum && docker rm -fv textsum  # Stop and remove the container if running (first iteration commented out)
        
       - name: Run Docker Image to serve users
         run: |
