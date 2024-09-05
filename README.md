@@ -39,7 +39,7 @@ cd text-summarizer
 ### 2. Set up Virtual Environment
 ```bash
 python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scriptsctivate
+source venv/bin/activate  
 ```
 
 ### 3. Install Dependencies
