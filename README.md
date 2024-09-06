@@ -128,6 +128,14 @@ docker run -p 8000:8000 text-summarizer-app
    - `AWS_ECR_LOGIN_URI`
    - `ECR_REPOSITORY_NAME`
 
+## App Images
+
+![img 1](screenshots/Deploye_Homepage.png)
+
+
+![img 2](screenshots/Deployed_Predicted.png)
+
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
